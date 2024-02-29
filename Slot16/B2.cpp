@@ -1,5 +1,28 @@
 #include <stdio.h>
+#include <stdbool.h>
 
+bool isPrime (int n) { 
+	if (n <= 1) {
+		return false;
+	}
+	for (int i = 2; i*i <= n; i++) {
+		if (n % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+void checkPrime (int arr[], int size) {
+	int sum;
+	for (int i = 0; i < size; i++) {
+		if (isPrime(arr[i])) { 
+			sum += arr[i];
+		}
+	}
+	printf("%d\n", sum);
+}
+ 
 int main() {
 	int n;
 	printf("Nhap vao size cua mang: ");
@@ -22,57 +45,37 @@ int main() {
 			}
 		}
 	}
-	printf("\n.Sap xep mang da nhap theo chieu giam dan\n");
+	printf("\n.SAP XEP MANG THEO CHIEU GIAM DAN\n");
 	for (int i = 0; i < n; i++) {
-		printf("%d ", array[i]);
+		printf("%d", array[i]);
 	}
 	
 	//in ra tong cac so le
-	printf("\n.Tong cac so le trong mang\n");
+	printf("\n\n.TONG CAC SO LE TRONG MANG\n");
 	int sum;
 	for (int i = 0; i < n; i++) {
 		if (array[i]%2 != 0) {
 			sum += array[i];
 		}
 	}
-	printf("%d ", sum);
+	printf("%d\n", sum);
 	
 	//in ra tong cac so chan trong mang
-	printf("\n.Tong cac so chan trong mang\n");
+	printf("\n.TONG CAC SO CHAN TRONG MANG\n");
 	sum = 0;
 	for (int i = 0; i < n; i++) {
 		if (array[i]%2 == 0) {
 			sum += array[i];
 		}
 	}
-	printf("%d ", sum);
+	printf("%d\n", sum);
 	
 	//Tong cac so nguyen to trong mang
-	printf("\n.Tong cac so nguyen to\n");
-	sum = 0;
-	int tmp2, sochia;
-	sochia = 2;
-	tmp2 = 0;
-	for (int i = 0; i < n; i++) {
-		if (array[i] > 1) {
-			if (array[i] % 2 != 0 || array[i] == 2) {
-				tmp2 = sochia*sochia;
-				while (tmp2 <= array[i]) {
-					sochia++;
-					tmp2 = sochia*sochia;
-				}
-				if (tmp2 >= array[i]) {
-					sum+= array[i];
-				}
-				tmp2 = 0;
-				sochia = 2;
-			}
-		}
-	}
-	printf("%d", sum);
+	printf("\n.TONG CAC SO NGUYEN TO\n");
+	checkPrime(array, n);//truyen mang va kich thuoc vao ham
 	
 	//tim so lan m xuat hien trong mang
-	printf("\n.Tim so lan m xuat hien trong mang\n");
+	printf("\n.TIM SO LAN M XUAT HIEN TRONG MANG\n");
 	int m, count;
 	printf("Nhap vao so m bat ky: ");
 	scanf("%d", &m);
@@ -81,14 +84,14 @@ int main() {
 			count += 1;
 		}
 	}
-	printf("%d", count);
+	printf("So lan %d xuat hien trong mang la: %d\n", m, count);
 	
 	//tinh tong cac phan tu trong mang
-	printf("\n.Tinh tong cac phan tu trong mang\n");
+	printf("\n.TINH TONG CAC PHAN TU TRONG MANG\n");
 	sum = 0;
 	for (int i = 0; i < n; i++) {
 		sum += array[i];
 	}
-	printf("%d", sum);
+	printf("%d\n", sum);
 	
 }
