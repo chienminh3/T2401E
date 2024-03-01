@@ -9,6 +9,8 @@ struct Student {
 		int numberPhone;
 	};
 
+
+
 int main() {
 	
 	struct Student *ptr_Student;
@@ -62,7 +64,7 @@ int main() {
 			case 2:
 				printf("\nSINH VIEN CO TEN DAI NHAT\n");
 				int maxName;
-				i = 0;
+				i = 0; 
 				flag = 0;
 				maxName = strlen((ptr_Student+i)->name);
 				for (i++; i < rangeStd; i++) {
@@ -93,13 +95,18 @@ int main() {
 				int searching;
 				printf("\nNHAP TUOI SINH VIEN CAN TIM: ");
 				scanf("%d", &searching);
+				int check;
 				for (i = 0; i < rangeStd; i++) {
 					if (searching == (ptr_Student+i)->age) {
+						check++;
 						printf("Ten    : %s\n", (ptr_Student+i)->name);
 						printf("Tuoi   : %d\n", (ptr_Student+i)->age);
 						printf("Dia chi: %s\n", (ptr_Student+i)->address);
 						printf("SDT    : %d\n\n", (ptr_Student+i)->numberPhone);
-					}
+					} 
+				}	
+				if (check == 0) {
+					printf("\nKhong co sinh vien %d\n", searching);
 				}
 				break;
 				
