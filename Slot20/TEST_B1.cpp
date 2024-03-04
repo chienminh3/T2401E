@@ -12,7 +12,7 @@ int main() {
 		scanf("%d", &arr[i]);
 	}
 	
-	//search min number in array
+	//search smallest even number in array
 	int minNum;
 	for (int i = 0; i < size; i++) {
 		if (arr[i] % 2 == 0) {
@@ -26,7 +26,7 @@ int main() {
 		}
 	}
 	
-	//display min number
+	//display smallest even number
 	printf("\nSmallest even number is: %d", minNum);
 	
 }
