@@ -27,6 +27,6 @@ int main() {
 	}
 	
 	//display min number
-	printf("\nMin of number even is: %d", minNum);
+	printf("\nSmallest even number is: %d", minNum);
 	
 }
