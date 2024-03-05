@@ -13,13 +13,13 @@ float CrystalTienDien(float sokWh) {
 	
 	if (sokWh >= 51 && sokWh <= 100) {
 		result = sokWh * 700;
-	}
+	}	
 	
 	if (sokWh >= 101) {
 		result = sokWh * 900;
 	}
 	return result;
-}
+}	
 
 int main() {
 	float sokWh;
@@ -33,22 +33,18 @@ int main() {
 	printf("\n 3. 120 kWh");
 	printf("\n\nChoose 1-3: ");
 	int choose;
-	float result;
 	scanf("%d", &choose);
 	if (choose >= 1 && choose <= 3) {
 		if (choose == 1) {
-			result = case1 * 500;
-			printf("\n%0.2f", result);
+			printf("\n%0.2f", CrystalTienDien(case1));
 		}
 		
 		if (choose == 2) {
-			result = case2 * 700;
-			printf("\n%0.2f", result);
+			printf("\n%0.2f", CrystalTienDien(case2));
 		}
 		
 		if (choose == 3) {
-			result = case3 * 900;
-			printf("\n%0.2f", result);
+			printf("\n%0.2f", CrystalTienDien(case3));
 		}	
 	} else {
 		printf("\nStop program!");
