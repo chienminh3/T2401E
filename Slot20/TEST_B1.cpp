@@ -15,7 +15,7 @@ int main() {
 	//search smallest even number in array
 	int minNum;
 	for (int i = 0; i < size; i++) {
-		if (arr[i] % 2 == 0) {
+		if (arr[i] > 0) {
 			if (i == 0) {
 				minNum = arr[i];
 			} else {
