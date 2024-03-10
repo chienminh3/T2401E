@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -62,8 +62,8 @@ void printLongestNameStudentFromFile(const char *filename) {
             nameStart += strlen("Ten: ");
             char *nameEnd = strchr(nameStart, ','); // T?m d?u ',' k?t thúc c?a thông tin tên
             if (nameEnd != NULL) {
-                int nameLength = nameEnd - nameStart;
-                if (nameLength > maxNameLength) {
+                int nameLength = nameEnd - nameStart;//lay do dai cua chuoi
+                if (nameLength > maxNameLength) {	//check do dai chuoi nao lon hon
                     maxNameLength = nameLength;
                     strncpy(longestName, nameStart, nameLength);
                     longestName[nameLength] = '\0'; // Ð?m b?o k?t thúc chu?i

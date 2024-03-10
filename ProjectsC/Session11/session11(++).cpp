@@ -39,7 +39,43 @@ void saveInforStudent(struct student *student, int numberStudent) {
 	fclose(filePointer);
 }
 
-//check name dai nhat
+//tim kiem sv co age lon nhat
+void checkAgeStudentMax(const char *filename) {
+	FILE *filePointer;
+	char buffer[MAX_NAME_LENGTH * 2];
+	char getAgeLength[MAX_NAME_LENGTH];
+	int ageStudentMax = 0;
+	
+	filePointer = fopen(filename, "r");// mo file
+	
+	while (fgets(buffer, sizeof(buffer), filePointer) != NULL) {
+		char *ageStart = strstr(buffer, "Tuoi: ");
+		if (ageStart != NULL) {
+			ageStart += strlen("Tuoi: ");
+			char *ageEnd = strchr(ageStart, ',');
+			if (ageEnd != NULL) {
+				int ageLength = ageEnd - ageStart;
+				strncpy(getAgeLength, ageStart, ageLength);
+				int tmp = getAgeLength[ageLength];
+				getAgeLength[ageLength] = '\0';
+				if (tmp > ageStudentMax) {
+					ageStudentMax = tmp;
+				}
+			}
+		}
+	}
+	fclose(filePointer);//dong file
+	printf("\nTuoi lon nhat la: %d", ageStudentMax);
+	if (ageStudentMax > 0) {
+		printf("\nTuoi lon nhat la: %d", ageStudentMax);
+	} else {
+		printf("\nKhong tim thay!\n");
+	}
+	
+}
+
+
+//tim kiem sv co name dai nhat
 void checkLongestNameStudent(const char *fileName) {
 	FILE *filePointer;
 	char buffer[MAX_NAME_LENGTH * 2];
@@ -48,11 +84,32 @@ void checkLongestNameStudent(const char *fileName) {
 	
 	filePointer = fopen(fileName, "r");//mo file
 	
-	if (filePointer == NULL) {
-		printf("\nKhong the mo file!\n");
+	//tim sinh vien co ten dai nhat trong file
+	while (fgets(buffer, sizeof(buffer), filePointer) != NULL) {	
+		char *nameStart = strstr(buffer, "Ten: ");	//tim dong chua ten sinh vien
+		if (nameStart != NULL) {
+			nameStart += strlen("Ten: ");
+			char *nameEnd = strchr(nameStart, ',');	//tim ky tu ket thuc chuoi
+			if (nameEnd != NULL) {					
+				int nameLength = nameEnd - nameStart;	//lay do dai cua chuoi
+				if (nameLength > maxNameLength) {	
+					maxNameLength = nameLength;
+					strncpy(longestName, nameStart, nameLength);	//copy chuoi dai nhat vao longestName voi do dai la nameLength
+					longestName[nameLength] = '\0';		//dam bao ket thuc chuoi va khong chua ky tu nao sau chuoi longestName
+				}
+			}
+			
+		}		
 	}
+	fclose(filePointer);
 	
-	
+	//hien thi thong tin sinh vien co ten dai nhat
+	if (maxNameLength > 0) {
+		printf("\nSinh vien co ten dai nhat la: %s", longestName);
+		printf("\nGom: %d ky tu", maxNameLength);
+	} else {
+		printf("\nKhong tim thay!\n");
+	}
 	
 	
 }
@@ -82,7 +139,7 @@ int main() {
 	
 	int choose;
 	do {
-		printf("\n1. in ra sinh vien co tuoi lon nhat");
+		printf("\n\n1. in ra sinh vien co tuoi lon nhat");
 		printf("\n2. in ra sinh vien co ten dai nhat");
 		printf("\n3. in ra sinh vien co tuoi lon hon '20'");
 		printf("\n4. tim kiem thong tin sinh vien theo tuoi");
@@ -95,13 +152,11 @@ int main() {
 		
 		switch(choose) {
 			case 1://hien thi sinh vien co ten dai nhat len man hinh console
-				printf("\nSINH VIEN CO TEN DAI NHAT:\n");
-				checkLongestNameStudent("Session11.txt");
-				
+				checkAgeStudentMax("Session11.txt");
 				break;
 				
 			case 2:
-				
+				checkLongestNameStudent("Session11.txt");
 				break;
 			
 			case 3: 
@@ -128,7 +183,7 @@ int main() {
 				}
 				
 				saveInforStudent(students, numberStudent);	//luu thong tin sinh vien
-				printf("\nDa luu thong tin sinh vien!\n\n");
+				printf("\nDa luu thong tin sinh vien!\n");
 				break;
 			
 			case 6://doc file va hien thi len man hinh console

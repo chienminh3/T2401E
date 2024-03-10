@@ -22,19 +22,15 @@ float CrystalTienDien(float sokWh) {
 }	
 
 int main() {
-	float sokWh;
-	printf("Enter number kWh: ");
-	scanf("%f", &sokWh);
-	printf("%0.2f\n", CrystalTienDien(sokWh));
-	
 	printf("\nChoose on the three cases: ");
 	printf("\n 1. 30 kWh");
 	printf("\n 2. 80 kWh");
 	printf("\n 3. 120 kWh");
-	printf("\n\nChoose 1-3: ");
+	printf("\n 4. Crystal kWh");
+	printf("\n\nChoose 1-4: ");
 	int choose;
 	scanf("%d", &choose);
-	if (choose >= 1 && choose <= 3) {
+	if (choose >= 1 && choose <= 4) {
 		if (choose == 1) {
 			printf("\n%0.2f", CrystalTienDien(case1));
 		}
@@ -45,6 +41,13 @@ int main() {
 		
 		if (choose == 3) {
 			printf("\n%0.2f", CrystalTienDien(case3));
+		}
+		
+		if (choose == 4) {
+			float sokWh;
+			printf("Enter kWh: ");
+			scanf("%f", &sokWh);
+			printf("%0.2f\n", CrystalTienDien(sokWh));	
 		}	
 	} else {
 		printf("\nStop program!");

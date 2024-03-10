@@ -36,6 +36,7 @@ int main() {
 		printf("\n2. in ra sinh vien co ten dai nhat");
 		printf("\n3. in ra sinh vien co tuoi lon hon 20");
 		printf("\n4. tim kiem thong tin sinh vien theo tuoi");
+		printf("\n5. Ket thuc");
 		printf("\nChon 1-5: ");
 		scanf("%d", &choose);
 		printf("\n");
