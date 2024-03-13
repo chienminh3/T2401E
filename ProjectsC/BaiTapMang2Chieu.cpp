@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
+#define col 50
 int main() {
-	int line, col;
+	int line;
 	printf("enter lines number: ");
 	scanf("%d", &line);
-	printf("enter lines number: ");
-	scanf("%d", &col);
-	int array[line][col];
+	getchar();
+	char array[line][col];
 	
 	for (int i = 0; i < line; i++) {
-		printf("enter string %d: ", i);
-		scanf("%s", array[i]);
+		printf("enter string %d: ", i+1);
+		gets(array[i]);
 	}
 	for (int i = 0; i < line; i++) {
-		printf("\nString %d: %s", i, array[i]);
+		printf("\nString %d: %s", i+1, array[i]);
 	}
 }
