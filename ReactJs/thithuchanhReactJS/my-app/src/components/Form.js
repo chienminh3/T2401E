@@ -73,7 +73,6 @@ function Form() {
                         <th>Tên sách</th>
                         <th>Tên tác giả</th>
                         <th>Năm xuất bản</th>
-                        <th>Chức năng</th>
                     </tr>
                 </thead>
 
@@ -83,7 +82,7 @@ function Form() {
                             <th>{index+1}</th>
                             <th>{item.name}</th>
                             <th>{item.auther}</th>
-                            
+                            <th>{item.year}</th>
                         </tr>
                     ))}
                 </tbody>
