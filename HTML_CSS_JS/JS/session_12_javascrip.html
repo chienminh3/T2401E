@@ -78,15 +78,16 @@
             console.log("arr3 index: "+ item + " Value: "+ index)
         })
 
-        let arr4 = arr3.map((item)=> { //Map add string in array end
+        let arr4 = arr3.map((item)=> { //tạo ra một mảng mới và add or fix
             return (item +" FPT Aptech");
         })
         console.log(arr4[0])
 
-        arr4.forEach((item, index)=> { //add string in element array end
+        arr4.forEach((item, index)=> { //lặp qua các phần tử trong 1 mảng
             console.log("arr4 index: "+ index +" Value: "+ item)
         })
 
+        // check item < 18
         let arr5 = new Array(12, 14, 18, 15, 17, 20);
         let filter = arr5.filter((item)=> {
             return item < 18;
@@ -95,7 +96,7 @@
             console.log("filter : "+ index +" item "+ item)
         })
 
-        //Method: concat, join, pop, push, sort
+        //Method: concat, join, pops, push, sort <=======
         let concatArray = arr.concat(arr2, arr3); //concat gộp nhiều mảng vào nó
         concatArray.forEach((item, index)=> {
             console.log("concatArray index: "+ index +" Value: "+ item)
@@ -108,7 +109,8 @@
         console.log("popValue: "+ popValue)
         concatArray.push(concatArray, "Hi");//thêm phần tử vào cuối mảng
         console.log("concatArray value push: ", concatArray)
-        concatArray.forEach((item, index)=> {
+
+        concatArray.forEach((item, index)=> {//lặp qua các phần tử trong mảng
             console.log("concatArray index: "+ index+" Value: "+item)
         })
         
@@ -147,6 +149,7 @@
         // obj.age = 30;
         // console.log(obj.name)
 
+        //function template
         function student_infor(name, age, address) {
             this.name = name;
             this.age = age;
@@ -155,7 +158,7 @@
         let std1 = new student_infor('nguyen van an', '23', 'Ha dong');
         console.log(std1.name)
         // alert("name: "+ std1.name +". age: "+ std1.age +". address: "+std1.address);
-s
+
         //getdate, getmonth, gettime, getday,...
         let currentime = new Date();
         currentime = currentime.getMonth();
@@ -169,13 +172,24 @@ s
         //     console.log(num1 + num2)
         // }
 
-        
+    //click to display date
+    function displayDate() {
+        document.getElementById("displayDate").innerHTML = Date();
+    }
+    
 
+    //click to display text css
+    function displayText () {
+        document.getElementById("displayText").style.display = "block";
+    }
 
 
     </script>
 
     <style>
+        body {
+            text-align: center;
+        }
         .container_form {
             width: 500px;
             height: 200px;
@@ -234,12 +248,41 @@ s
         </form>
     </div>
 
-    <!-- caculator
-    <div class="container_caculator">
-        <form action="">
+    
+    <div style="margin-top: 20px;">
+        CLICK TO DISPLAY DATE 
+        <button id="clickDate" onclick=" displayDate()">CLICK HERE!</button>
+        <p id="displayDate"></p>
+    </div>
 
-        </form>
-    </div> -->
+    <div style="margin-top: 20px;">
+        <button id="btnText" onclick="displayText()">CLICK HERE !</button>
+        <p id="displayText" style="color: blue; display: none;">Ban vua click vao button !</p>
+    </div>
+
+
+    <button id="btnID">CLICK HERE !</button>
+    <p id="displayID"></p>
+
+
+
+    <!-- JS -->
+    <script>
+
+        document.getElementById("btnID").onclick = displayDate;
+        function displayDate() {
+            document.getElementById("displayID").innerHTML = Date();
+        }
+
+
+        // hien thi mot doan van ban cua tag Name bang cach getElementByTagName
+        document.getElementsByTagName('body')[0].innerHTML = '<div id = "gator"> Alligators rule !! </div>  <div id="gator2"> Alligators rule 2 !! </div> '
+        // edit innerHTML equal method choose element ('gator') and use innerText
+        document.getElementById('gator').innerText = 'Of Course alligators rule !!';
+        document.removeChild('gator2');
+
+
+    </script>
 
 </body>
 </html>

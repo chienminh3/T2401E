@@ -22,7 +22,7 @@ function removeError() {
     let password = document.getElementById("passwordID").value;
     let acceptpassword = document.getElementById("acceptpasswordID").value;
     if (name == "" || address == "" || numberphone == "" || password == "" || acceptpassword == "") {
-        let error = document.getElementById("enterError")
+        let error = document.getElementById("enterError");
         error.innerText = "";
     }
 }
@@ -33,3 +33,14 @@ function convertToStars(inputElement) {
     var starredValue = inputValue.replace(/./g, "*");
     inputElement.value = starredValue;
 }
+
+//check numberPhone 
+function checkNumIsInteger() {
+    let numberPhone = document.getElementById("numberPhoneID").value;
+    console.log(numberPhone);
+    if (!Number.isInteger(numberPhone)) {
+        let error = document.getElementById("enterError");
+        error.innerText = "Vui lòng nhập số !";
+    } 
+}
+

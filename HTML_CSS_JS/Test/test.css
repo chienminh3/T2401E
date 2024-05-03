@@ -8,6 +8,7 @@ body {
     width: 800px;
     height: 700px;
     margin: 0 auto;
+    margin-bottom: 50px;
     background-color: aliceblue;
     border-radius: 10px;
     text-align: center;
